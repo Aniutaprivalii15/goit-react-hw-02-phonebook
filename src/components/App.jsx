@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
-import { ContactsList }  from './ContactList/ContactList';
+import { ContactList }  from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-// import { Container} from './App.styled';
+
 
 // class App extends Component {
 export class App extends Component {
@@ -65,8 +65,8 @@ export class App extends Component {
     const visibleContacts = this.getVisibleContacts();
 
     return (
-      <div>
-          style={{
+      <div
+        style={{
           height: '100vh',
           display: 'flex',
           flexDirection: 'column',
@@ -75,18 +75,18 @@ export class App extends Component {
           fontSize: 20,
           color: '#010101',
         }}
-
+        >
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
 
         <h2>Contacts</h2>
-        <Filter value={filter} onChange={this.changeFilter} />
-        <ContactsList
+        <Filter value={filter} onChange={this.handleFilter} />
+        <ContactList
           contacts={visibleContacts}
           onDeleteContact={this.deleteContact}
         />
 
-        </div>
+      </div>
     );
   }
 }
