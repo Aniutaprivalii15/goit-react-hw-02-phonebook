@@ -13,14 +13,15 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
+
   };
 
-  newContact = e => {
+  handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
-  removeId = e => {
+  handleSubmit = e => {
     const id = nanoid();
     const name = e.name;
     const number = e.number;
@@ -32,7 +33,7 @@ export class App extends Component {
       contactsLists.push({ name, id, number });
     }
 
-    // this.setState({ contacts: contactsLists });
+    this.setState({ contacts: contactsLists });
   };
 
   handleDelete = e => {
